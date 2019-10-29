@@ -9,7 +9,7 @@ class DiceCog(commands.Cog):
 
     @commands.command(
         aliases=["r"],
-        help="Simple dice roller, returns single dices, their sum and the highest number rolled",
+        help="Simple dice roller",
         usage="roll|r [number of dices]d[dice size]"
     )
     async def roll(self, ctx, arg):
