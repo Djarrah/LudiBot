@@ -1,7 +1,9 @@
 from discord.ext import commands
 
 
-class OwnerCog(commands.Cog):
+class Owner(commands.Cog):
+    "Just for Djarrah's eyes"
+    
     def __init__(self, bot):
         self.bot = bot
 
@@ -41,4 +43,4 @@ class OwnerCog(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(OwnerCog(bot))
+    bot.add_cog(Owner(bot))

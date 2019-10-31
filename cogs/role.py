@@ -2,7 +2,9 @@ from discord.ext import commands
 from discord.utils import get
 
 
-class RoleCog(commands.Cog):
+class Role(commands.Cog):
+    "Self-roles and other related commands"
+    
     def __init__(self, bot):
         self.bot = bot
 
@@ -50,4 +52,4 @@ class RoleCog(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(RoleCog(bot))
+    bot.add_cog(Role(bot))
