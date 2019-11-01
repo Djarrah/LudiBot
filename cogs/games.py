@@ -59,9 +59,9 @@ class Games(commands.Cog):
             if not user in self.decks:
                 self.decks[user] = Deck()
                 print(f"Deck created for {ctx.author.name}")
-            card = self.decks[user]._draw()
+            card = self.decks[user].draw()
             message = f"You drew the {card}, {ctx.author.mention}"
-            if not bool(self.decks[user].cards):
+            if self.decks[user].isempty():
                 self.decks[user] = Deck()
                 message += "\nDeck emptied, shuffling..."
                 print(f"{ctx.author.name}'s deck has been shuffled")

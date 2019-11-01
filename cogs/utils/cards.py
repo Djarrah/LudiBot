@@ -6,7 +6,7 @@ class Card:
         self.suit = suit
         self.rank = rank
 
-    def _show(self):
+    def show(self):
         if self.rank == "Joker":
             return f"{self.suit} Joker"
         return f"{self.rank} of {self.suit}"
@@ -25,13 +25,9 @@ class Deck:
             self.cards.append(Card(c, "Joker"))
         shuffle(self.cards)
 
-    def _show(self):
-        for c in self.cards:
-            c._show
-
-    def _shuffle(self):
-        shuffle(self.cards)
-
-    def _draw(self):
+    def draw(self):
         card = self.cards.pop()
-        return card._show()
+        return card.show()
+
+    def isempty(self):
+        return not bool(self.cards)

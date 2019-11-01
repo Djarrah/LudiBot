@@ -53,28 +53,30 @@ class Roles(commands.Cog):
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
 
-    '''
-    Temp command until i figure a simpler way to let Game Organizers
-    hand out their Game's Role, like reaction to posts
-    '''
-    @commands.command(help="Add or remove the Faded City role from yourself")
+    @commands.command(
+        help="Give/Take a Game Role if you are the Organizer of that Game",
+        aliases=["take"]
+    )
     @commands.guild_only()
-    async def fadedcity(self, ctx):
+    async def give(
+        self, ctx,
+        target: commands.MemberConverter,
+        role: commands.RoleConverter
+    ):
         try:
-            role = get(ctx.guild.roles, name="Faded City")
-            member = ctx.author
-            if role in member.roles:
-                await member.remove_roles(role)
-                await ctx.send(
-                    f"You are no longer listed as Faded City, {member.mention}!"
-                )
-                print(f"Faded City role removed from {member.name}")
+            orgrole = get(ctx.guild.roles, name=role.name + "Organizer")
+            if orgrole in ctx.author.roles:
+                if not role in target.roles:
+                    await target.add_roles(role)
+                    message = f"{role.name} added to {target.mention}"
+                else:
+                    await target.remove_roles(role)
+                    message = f"{role.name} removed from {target.mention}"
+                await ctx.send(message)
+                message += f" by {ctx.author.name}"
+                print(message)
             else:
-                await member.add_roles(role)
-                await ctx.send(
-                    f"You are now listed as Faded City, {member.mention}!"
-                )
-                print(f"Faded City role added to {member.name}")
+                await ctx.send("You don't have permissions for this role")
         except Exception as e:
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
