@@ -36,15 +36,17 @@ class Games(commands.Cog):
     )
     async def card(self, ctx):
         tag = ctx.author.mention
-        suit = choice(["hearts", "spades", "clubs", "diamonds"])
+        suit = choice(["Hearts", "Spades", "Clubs", "Diamonds"])
         value = choice(["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"])
         joker = randint(1, 27)
         if joker == 27:
-            color = choice(["red", "black"])
+            color = choice(["Red", "Black"])
             message = f"You picked the {color} joker, {tag}!"
         else:
             message = f"You picked the {value} of {suit}, {tag}!"
         await ctx.send(message)
+
+    # To do: Individual decks card and shuffle, additive dice rolls
 
 
 def setup(bot):
