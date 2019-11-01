@@ -3,9 +3,10 @@ from discord.ext import commands
 
 class Mod(commands.Cog):
     "Moderation commands"
-    
+
     def __init__(self, bot):
         self.bot = bot
+
 
     @commands.command(help="Deletes the last x messages from the channel.")
     @commands.has_role("Staff")

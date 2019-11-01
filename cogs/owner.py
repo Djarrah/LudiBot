@@ -3,9 +3,10 @@ from discord.ext import commands
 
 class Owner(commands.Cog):
     "Just for Djarrah's eyes"
-    
+
     def __init__(self, bot):
         self.bot = bot
+
 
     @commands.command(help="unloads a cog", hidden=True, aliases=["unload"])
     @commands.is_owner()
@@ -18,6 +19,7 @@ class Owner(commands.Cog):
         except Exception as e:
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
+
     @commands.command(help="loads a cog", hidden=True, aliases=["load"])
     @commands.is_owner()
     async def load_cog(self, ctx, cogname: str):
@@ -28,6 +30,7 @@ class Owner(commands.Cog):
             print(f"{cogname} enabled")
         except Exception as e:
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
+
 
     @commands.command(help="reloads a cog", hidden=True, aliases=["reload"])
     @commands.is_owner()

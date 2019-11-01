@@ -8,6 +8,7 @@ class Roles(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+
     @commands.command(help="Add or remove the Available role from yourself")
     @commands.guild_only()
     async def available(self, ctx):
@@ -29,6 +30,7 @@ class Roles(commands.Cog):
         except Exception as e:
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
+
     @commands.command(help="Add or remove the Organizer role from yourself")
     @commands.guild_only()
     async def organizer(self, ctx):
@@ -49,6 +51,7 @@ class Roles(commands.Cog):
                 print(f"Organizer role added to {member.name}")
         except Exception as e:
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
+
 
     '''
     Temp command until i figure a simpler way to let Game Organizers
