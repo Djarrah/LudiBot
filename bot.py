@@ -2,12 +2,10 @@ import os
 
 import discord
 from discord.ext import commands
-from dotenv import load_dotenv
 
 
 # Setup
-load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN")
+TOKEN = os.environ["TOKEN"]
 bot = commands.Bot(command_prefix="/")
 console_channel = "bot-console"
 
