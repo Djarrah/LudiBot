@@ -81,5 +81,20 @@ class Roles(commands.Cog):
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
 
+    @commands.command(
+        help="Sends you a list of members for a role via DM",
+        aliases=["rlist"]
+    )
+    @commands.guild_only()
+    async def rolelist(self, ctx, role: commands.RoleConverter):
+        try:
+            message = f"List of members for {role.name}:"
+            for m in role.members:
+                message += f"\n{m.name}"
+            await ctx.author.send(message)
+        except Exception as e:
+            await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
+
+
 def setup(bot):
     bot.add_cog(Roles(bot))
