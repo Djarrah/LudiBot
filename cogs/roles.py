@@ -68,12 +68,12 @@ class Roles(commands.Cog):
             if orgrole in ctx.author.roles:
                 if not role in target.roles:
                     await target.add_roles(role)
-                    message = f"{role.name} added to {target.mention}"
+                    message = f"{role.name} added to {target.name}"
                 else:
                     await target.remove_roles(role)
-                    message = f"{role.name} removed from {target.mention}"
-                await ctx.send(message)
+                    message = f"{role.name} removed from {target.name}"
                 message += f" by {ctx.author.name}"
+                await ctx.send(message)
                 print(message)
             else:
                 await ctx.send("You don't have permissions for this role")
