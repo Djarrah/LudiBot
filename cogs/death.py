@@ -60,7 +60,8 @@ class Death(commands.Cog):
 
     @commands.command(help="Kill someone in a random way")
     @commands.guild_only()
-    async def kill(self, ctx, victim):
+    async def kill(self, ctx, *args):
+        victim = " ".join(args)
         message = choice(self.kills).format(ctx.author.display_name, victim)
         await ctx.send(message)
 
