@@ -25,7 +25,16 @@ class Death(commands.Cog):
             "{} died in a video game, which of course led to dying in real life",
             "{} forgot to set the alarm clock and just never got around to waking up",
             "{} got hungry and ate a horse but it turned out that the horse was Trojan",
-            "{} sparkled to death in the sun"
+            "{} sparkled to death in the sun",
+            "{} stepped into a faery ring and was never seen again",
+            "{} fell into a non-Euclidean angle and vanished",
+            "This porridge is too hot! This porridge is too cold! And this porridge is just right for {} to choke to death on!",
+            "A mysterious light hovers over {}’s house for a moment, and then… who’s {}?",
+            "{} slipped on a banana peel and died",
+            "{} gazed long into the abyss, and then unceremoniously fell in",
+            "A whisper sounded from a dark alleyway and {} made the mistake of answering its question",
+            "The dolls did not kill {}, of course they did not, you’re just imagining things",
+            "{} ventured into the darkness and was eaten by a grue"
         ]
         self.kills = [
             "{0} stabbed {1} 28 times, just to be sure",
@@ -41,7 +50,13 @@ class Death(commands.Cog):
             "{0} fed {1} to a litter of fluffy kittens",
             "{0} made {1} into a doll",
             "{1} was found dead at sunrise, lying next to a note scrawled in {0}’s hand…",
-            "In an astonishing twist, {1} turned the tables on {0}, who was subsequently crushed by said tables"
+            "In an astonishing twist, {1} turned the tables on {0}, who was subsequently crushed by said tables",
+            "{0} drowned {1} in honey",
+            "{1} stepped on {0}’s shadow and was swallowed up by the darkness",
+            "{0} summoned a giant hammer from hammerspace and bonked {1} on the head",
+            "{0} painted the seven signs in the blood of three different animals. Several days later, {1} collapsed mysteriously",
+            "The dolls gathered around {1} while {0} stood by and watched, popcorn in hand…",
+            "{1} fell to the ground dead as {0} vanished as a whisper into the night"
         ]
 
 
