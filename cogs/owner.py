@@ -14,8 +14,8 @@ class Owner(commands.Cog):
         try:
             cog = "cogs." + cogname
             self.bot.unload_extension(cog)
-            await ctx.send(f"{cogname} disabled")
-            print(f"{cogname} disabled")
+            await ctx.send(f"{cogname} commands disabled")
+            print(f"{cogname} commands disabled")
         except Exception as e:
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
@@ -26,8 +26,8 @@ class Owner(commands.Cog):
         try:
             cog = "cogs." + cogname
             self.bot.load_extension(cog)
-            await ctx.send(f"{cogname} enabled")
-            print(f"{cogname} enabled")
+            await ctx.send(f"{cogname} commands enabled")
+            print(f"{cogname} commands enabled")
         except Exception as e:
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
@@ -39,8 +39,8 @@ class Owner(commands.Cog):
             cog = "cogs." + cogname
             self.bot.unload_extension(cog)
             self.bot.load_extension(cog)
-            await ctx.send(f"{cogname} reloaded")
-            print(f"{cogname} reloaded")
+            await ctx.send(f"{cogname} commands reloaded")
+            print(f"{cogname} commands reloaded")
         except Exception as e:
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 

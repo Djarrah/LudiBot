@@ -53,6 +53,28 @@ class Roles(commands.Cog):
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
 
+    @commands.command(help="Add or remove the Streamfan role from yourself")
+    @commands.guild_only()
+    async def streamfan(self, ctx):
+        try:
+            role = get(ctx.guild.roles, name="Streamfan")
+            member = ctx.author
+            if role in member.roles:
+                await member.remove_roles(role)
+                await ctx.send(
+                    f"You are no longer listed as Streamfan, {member.mention}!"
+                )
+                print(f"Streamfan role removed from {member.name}")
+            else:
+                await member.add_roles(role)
+                await ctx.send(
+                    f"You are now listed as Streamfan, {member.mention}!"
+                )
+                print(f"Streamfan role added to {member.name}")
+        except Exception as e:
+            await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
+
+
     @commands.command(
         help="Give/Take a Game Role if you are the Organizer of that Game",
         aliases=["take"]
