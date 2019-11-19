@@ -82,6 +82,38 @@ class Games(commands.Cog):
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
 
+    @commands.command(help="Draws a Major Arcana")
+    async def tarot(self, ctx):
+        try:
+            arcana = choice([
+                "The Fool",
+                "The Magician",
+                "The High Priestess",
+                "The Empress",
+                "The Emperor",
+                "The Hierofant",
+                "The Lovers",
+                "The Chariot",
+                "Strength",
+                "The Hermit",
+                "Wheel of Fortune",
+                "Justice",
+                "The Hanged Man",
+                "Death",
+                "Temperance",
+                "The Devil",
+                "The Tower",
+                "The Star",
+                "The Moon",
+                "The Sun",
+                "Judgment",
+                "The World"
+            ])
+            await ctx.send(f"{ctx.author.mention} {arcana}")
+        except Exception as e:
+            await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
+
+
     # To do: additive dice rolls
 
 
