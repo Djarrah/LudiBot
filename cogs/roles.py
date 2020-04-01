@@ -9,6 +9,17 @@ class Roles(commands.Cog):
         self.bot = bot
 
 
+    @commands.command(hidden=True)
+    @commands.guild_only()
+    async def dontplay(self, ctx):
+        role = get(ctx.guild.roles, name="Player")
+        member = ctx.author
+        if role in member.roles:
+            await ctx.message.delete()
+            await member.remove_roles(role)
+            await ctx.send(f"{member.mention} won the game!")
+
+
     @commands.command(help="Add or remove the Available role from yourself")
     @commands.guild_only()
     async def available(self, ctx):
