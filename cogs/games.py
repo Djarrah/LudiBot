@@ -114,6 +114,46 @@ class Games(commands.Cog):
             await ctx.send(f"**`ERROR:`** {type(e).__name__} - {e}")
 
 
+    @commands.command(
+        usage="[number of d20s]+[bonus] Ex: /sab 3+5"
+    )
+    async def sab(self, ctx, *args):
+        "Souls & Blood dice roller"
+
+        # Formula splitting
+        command = "".join(args)
+        parts = command.split("+")
+        dice = int(parts[0])
+        mod = int(parts[1])
+
+        # Rolls list
+        mess = f"{ctx.author.mention} Rolls: "
+        rolls = []
+        for d in range(dice):
+            t = randint(1, 20)
+            rolls.append(t)
+            mess+=f"{t} "
+
+        # Doubles control
+        unique = set()
+        doubles = []
+        for t in rolls:
+            if t in unique:
+                if not (t in doubles):
+                    doubles.append(t)
+                doubles.append(t)
+            else:
+                unique.add(t)
+        doubles_sum = sum(doubles)
+
+        # Results check
+        res = max(max(rolls), doubles_sum)
+        mess+=f"\nDice result: {res}"
+        mess+=f"\nTotal result: {res+mod}"
+        await ctx.send(mess)
+
+
+
     # To do: additive dice rolls
 
 
